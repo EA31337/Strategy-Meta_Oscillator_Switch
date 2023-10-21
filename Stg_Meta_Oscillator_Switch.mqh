@@ -60,90 +60,90 @@ INPUT2 short Meta_Oscillator_Switch_Shift = 0;                  // Shift
 INPUT2 float Meta_Oscillator_Switch_OrderCloseLoss = 200;       // Order close loss
 INPUT2 float Meta_Oscillator_Switch_OrderCloseProfit = 200;     // Order close profit
 INPUT2 int Meta_Oscillator_Switch_OrderCloseTime = 2880;        // Order close time in mins (>0) or bars (<0)
-INPUT3_GROUP("Meta Oscillator strategy: AC oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: AC oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_AC_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_AC_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: AD oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: AD oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_AD_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_AD_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: ATR oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: ATR oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_ATR_Period = 13;                                    // Period
 INPUT3 int Meta_Oscillator_Switch_Indi_ATR_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_ATR_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Awesome oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Awesome oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_Awesome_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_Awesome_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: BearsPower oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: BearsPower oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_BearsPower_Period = 30;                                    // Period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_BearsPower_Applied_Price = PRICE_CLOSE;     // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_BearsPower_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_BearsPower_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: BullsPower oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: BullsPower oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_BullsPower_Period = 30;                                    // Period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_BullsPower_Applied_Price = PRICE_CLOSE;     // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_BullsPower_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_BullsPower_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: BWMFI oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: BWMFI oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_BWMFI_Shift = 1;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_BWMFI_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: CCI oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: CCI oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_CCI_Period = 20;                                    // Period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_CCI_Applied_Price = PRICE_TYPICAL;   // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_CCI_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_CCI_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Chaikin oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Chaikin oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_CHO_InpFastMA = 10;                                 // Fast EMA period
 INPUT3 int Meta_Oscillator_Switch_Indi_CHO_InpSlowMA = 30;                                 // Slow MA period
 INPUT3 ENUM_MA_METHOD Meta_Oscillator_Switch_Indi_CHO_InpSmoothMethod = MODE_SMMA;         // MA method
 INPUT3 ENUM_APPLIED_VOLUME Meta_Oscillator_Switch_Indi_CHO_InpVolumeType = VOLUME_TICK;    // Volumes
 INPUT3 int Meta_Oscillator_Switch_Indi_CHO_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_CHO_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Chaikin Volatility oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Chaikin Volatility oscillator params");
 INPUT3 unsigned int Meta_Oscillator_Switch_Indi_CHV_Smooth_Period;                         // Smooth period
 INPUT3 unsigned int Meta_Oscillator_Switch_Indi_CHV_Period;                                // Period
 INPUT3 ENUM_CHV_SMOOTH_METHOD Meta_Oscillator_Switch_Indi_CHV_Smooth_Method;               // Smooth method
 INPUT3 int Meta_Oscillator_Switch_Indi_CHV_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_CHV_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: DeMarker indicator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: DeMarker indicator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_DeMarker_Period = 23;                                    // Period
 INPUT3 int Meta_Oscillator_Switch_Indi_DeMarker_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_DeMarker_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: MFI oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: MFI oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_MFI_MA_Period = 22;                                           // MA Period
 INPUT3 ENUM_APPLIED_VOLUME Meta_Oscillator_Switch_Indi_MFI_Applied_Volume = (ENUM_APPLIED_VOLUME)0;  // Applied volume.
 INPUT3 int Meta_Oscillator_Switch_Indi_MFI_Shift = 0;                                                // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_MFI_SourceType = IDATA_BUILTIN;            // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Momentum oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Momentum oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_Momentum_Period = 12;                                    // Averaging period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_Momentum_Applied_Price = PRICE_CLOSE;     // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_Momentum_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_Momentum_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: OBV oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: OBV oscillator params");
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_OBV_Applied_Price = PRICE_CLOSE;     // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_OBV_Shift = 1;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_OBV_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: PVT oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: PVT oscillator params");
 INPUT3 ENUM_APPLIED_VOLUME Meta_Oscillator_Switch_Indi_PVT_InpVolumeType = VOLUME_TICK;    // Volumes
 INPUT3 int Meta_Oscillator_Switch_Indi_PVT_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_PVT_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: ROC oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: ROC oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_ROC_Period = 16;                                    // Period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_ROC_Applied_Price = PRICE_WEIGHTED;  // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_ROC_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_ROC_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: RSI oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: RSI oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_RSI_Period = 16;                                    // Period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_RSI_Applied_Price = PRICE_WEIGHTED;  // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_RSI_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_RSI_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: StdDev oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: StdDev oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_StdDev_MA_Period = 24;                                 // Period
 INPUT3 int Meta_Oscillator_Switch_Indi_StdDev_MA_Shift = 0;                                   // MA Shift
 INPUT3 ENUM_MA_METHOD Meta_Oscillator_Switch_Indi_StdDev_MA_Method = (ENUM_MA_METHOD)3;       // MA Method
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_StdDev_Applied_Price = PRICE_WEIGHTED;  // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_StdDev_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_StdDev_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Stochastic oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Stochastic oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_Stochastic_KPeriod = 8;                      // K line period
 INPUT3 int Meta_Oscillator_Switch_Indi_Stochastic_DPeriod = 12;                     // D line period
 INPUT3 int Meta_Oscillator_Switch_Indi_Stochastic_Slowing = 12;                     // Slowing
@@ -152,12 +152,12 @@ INPUT3 ENUM_STO_PRICE Meta_Oscillator_Switch_Indi_Stochastic_Price_Field =
     0;                                                        // Price (0 - Low/High or 1 - Close/Close)
 INPUT3 int Meta_Oscillator_Switch_Indi_Stochastic_Shift = 0;  // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_Stochastic_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: TRIX oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: TRIX oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_TRIX_InpPeriodEMA = 14;                              // EMA period
 INPUT3 ENUM_APPLIED_PRICE Meta_Oscillator_Switch_Indi_TRIX_Applied_Price = PRICE_WEIGHTED;  // Applied Price
 INPUT3 int Meta_Oscillator_Switch_Indi_TRIX_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_TRIX_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Ultimate oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Ultimate oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_UO_InpFastPeriod = 7;                              // Fast ATR period
 INPUT3 int Meta_Oscillator_Switch_Indi_UO_InpMiddlePeriod = 14;                           // Middle ATR period
 INPUT3 int Meta_Oscillator_Switch_Indi_UO_InpSlowPeriod = 28;                             // Slow ATR period
@@ -166,14 +166,14 @@ INPUT3 int Meta_Oscillator_Switch_Indi_UO_InpMiddleK = 2;                       
 INPUT3 int Meta_Oscillator_Switch_Indi_UO_InpSlowK = 1;                                   // Slow K
 INPUT3 int Meta_Oscillator_Switch_Indi_UO_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_UO_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Williams' Accumulation/Distribution oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Williams' Accumulation/Distribution oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_WAD_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_WAD_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: WPR oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: WPR oscillator params");
 INPUT3 int Meta_Oscillator_Switch_Indi_WPR_Period = 18;                                    // Period
 INPUT3 int Meta_Oscillator_Switch_Indi_WPR_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_WPR_SourceType = IDATA_BUILTIN;  // Source type
-INPUT3_GROUP("Meta Oscillator strategy: Volumes oscillator params");
+INPUT3_GROUP("Meta Oscillator Switch strategy: Volumes oscillator params");
 INPUT3 ENUM_APPLIED_VOLUME Meta_Oscillator_Switch_Indi_VOL_InpVolumeType = VOLUME_TICK;    // Volumes
 INPUT3 int Meta_Oscillator_Switch_Indi_VOL_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Switch_Indi_VOL_SourceType = IDATA_BUILTIN;  // Source type
