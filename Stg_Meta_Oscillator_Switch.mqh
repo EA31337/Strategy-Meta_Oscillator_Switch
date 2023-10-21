@@ -1,63 +1,63 @@
 /**
  * @file
- * Implements Oscillator Filter meta strategy.
+ * Implements Oscillator Switch meta strategy.
  */
 
 // Prevents processing this includes file multiple times.
-#ifndef STG_META_OSCILLATOR_FILTER_MQH
-#define STG_META_OSCILLATOR_FILTER_MQH
+#ifndef STG_META_OSCILLATOR_SWITCH_MQH
+#define STG_META_OSCILLATOR_SWITCH_MQH
 
-enum ENUM_STG_META_OSCILLATOR_FILTER_TYPE {
-  STG_META_OSCILLATOR_FILTER_TYPE_0_NONE = 0,  // (None)
-  STG_META_OSCILLATOR_FILTER_TYPE_AC,          // AC: Accelerator/Decelerator
-  STG_META_OSCILLATOR_FILTER_TYPE_AD,          // AD: Accumulation/Distribution
-  STG_META_OSCILLATOR_FILTER_TYPE_AO,          // AO: Awesome
-  STG_META_OSCILLATOR_FILTER_TYPE_ATR,         // ATR
-  STG_META_OSCILLATOR_FILTER_TYPE_BEARS,       // Bears Power
-  STG_META_OSCILLATOR_FILTER_TYPE_BULLS,       // Bulls Power
-  STG_META_OSCILLATOR_FILTER_TYPE_BWMFI,       // BWMFI
-  STG_META_OSCILLATOR_FILTER_TYPE_CCI,         // CCI
-  STG_META_OSCILLATOR_FILTER_TYPE_CHO,         // CHO: Chaikin
-  STG_META_OSCILLATOR_FILTER_TYPE_CHV,         // CHV: Chaikin Volatility
-  STG_META_OSCILLATOR_FILTER_TYPE_DEMARKER,    // DeMarker
-  STG_META_OSCILLATOR_FILTER_TYPE_MFI,         // MFI
-  STG_META_OSCILLATOR_FILTER_TYPE_MOM,         // MOM: Momentum
-  STG_META_OSCILLATOR_FILTER_TYPE_OBV,         // OBV: On Balance Volume
-  STG_META_OSCILLATOR_FILTER_TYPE_PVT,         // PVT: Price and Volume Trend
-  STG_META_OSCILLATOR_FILTER_TYPE_ROC,         // ROC: Rate of Change
-  STG_META_OSCILLATOR_FILTER_TYPE_RSI,         // RSI
-  STG_META_OSCILLATOR_FILTER_TYPE_STDDEV,      // StdDev: Standard Deviation
-  STG_META_OSCILLATOR_FILTER_TYPE_STOCH,       // Stochastic
-  STG_META_OSCILLATOR_FILTER_TYPE_TRIX,        // TRIX: Triple Exponential Average
-  STG_META_OSCILLATOR_FILTER_TYPE_UO,          // UO: Ultimate Oscillator
-  STG_META_OSCILLATOR_FILTER_TYPE_WAD,         // WAD: Larry Williams' Accumulation/Distribution
-  STG_META_OSCILLATOR_FILTER_TYPE_WPR,         // WPR
-  STG_META_OSCILLATOR_FILTER_TYPE_VOL,         // VOL: Volumes
+enum ENUM_STG_META_OSCILLATOR_SWITCH_TYPE {
+  STG_META_OSCILLATOR_SWITCH_TYPE_0_NONE = 0,  // (None)
+  STG_META_OSCILLATOR_SWITCH_TYPE_AC,          // AC: Accelerator/Decelerator
+  STG_META_OSCILLATOR_SWITCH_TYPE_AD,          // AD: Accumulation/Distribution
+  STG_META_OSCILLATOR_SWITCH_TYPE_AO,          // AO: Awesome
+  STG_META_OSCILLATOR_SWITCH_TYPE_ATR,         // ATR
+  STG_META_OSCILLATOR_SWITCH_TYPE_BEARS,       // Bears Power
+  STG_META_OSCILLATOR_SWITCH_TYPE_BULLS,       // Bulls Power
+  STG_META_OSCILLATOR_SWITCH_TYPE_BWMFI,       // BWMFI
+  STG_META_OSCILLATOR_SWITCH_TYPE_CCI,         // CCI
+  STG_META_OSCILLATOR_SWITCH_TYPE_CHO,         // CHO: Chaikin
+  STG_META_OSCILLATOR_SWITCH_TYPE_CHV,         // CHV: Chaikin Volatility
+  STG_META_OSCILLATOR_SWITCH_TYPE_DEMARKER,    // DeMarker
+  STG_META_OSCILLATOR_SWITCH_TYPE_MFI,         // MFI
+  STG_META_OSCILLATOR_SWITCH_TYPE_MOM,         // MOM: Momentum
+  STG_META_OSCILLATOR_SWITCH_TYPE_OBV,         // OBV: On Balance Volume
+  STG_META_OSCILLATOR_SWITCH_TYPE_PVT,         // PVT: Price and Volume Trend
+  STG_META_OSCILLATOR_SWITCH_TYPE_ROC,         // ROC: Rate of Change
+  STG_META_OSCILLATOR_SWITCH_TYPE_RSI,         // RSI
+  STG_META_OSCILLATOR_SWITCH_TYPE_STDDEV,      // StdDev: Standard Deviation
+  STG_META_OSCILLATOR_SWITCH_TYPE_STOCH,       // Stochastic
+  STG_META_OSCILLATOR_SWITCH_TYPE_TRIX,        // TRIX: Triple Exponential Average
+  STG_META_OSCILLATOR_SWITCH_TYPE_UO,          // UO: Ultimate Oscillator
+  STG_META_OSCILLATOR_SWITCH_TYPE_WAD,         // WAD: Larry Williams' Accumulation/Distribution
+  STG_META_OSCILLATOR_SWITCH_TYPE_WPR,         // WPR
+  STG_META_OSCILLATOR_SWITCH_TYPE_VOL,         // VOL: Volumes
 };
 
 // User input params.
-INPUT2_GROUP("Meta Oscillator Filter strategy: main params");
-INPUT2 ENUM_STRATEGY Meta_Oscillator_Filter_Strategy = STRAT_MA_TREND;  // Strategy to filter by oscillator
-INPUT2 ENUM_STG_META_OSCILLATOR_FILTER_TYPE Meta_Oscillator_Filter_Type =
-    STG_META_OSCILLATOR_FILTER_TYPE_STDDEV;  // Oscillator type
-INPUT2_GROUP("Meta Oscillator Filter strategy: common params");
-INPUT2 float Meta_Oscillator_Filter_LotSize = 0;                // Lot size
-INPUT2 int Meta_Oscillator_Filter_SignalOpenMethod = 0;         // Signal open method
-INPUT2 float Meta_Oscillator_Filter_SignalOpenLevel = 0;        // Signal open level
-INPUT2 int Meta_Oscillator_Filter_SignalOpenFilterMethod = 32;  // Signal open filter method
-INPUT2 int Meta_Oscillator_Filter_SignalOpenFilterTime = 3;     // Signal open filter time (0-31)
-INPUT2 int Meta_Oscillator_Filter_SignalOpenBoostMethod = 0;    // Signal open boost method
-INPUT2 int Meta_Oscillator_Filter_SignalCloseMethod = 0;        // Signal close method
-INPUT2 int Meta_Oscillator_Filter_SignalCloseFilter = 32;       // Signal close filter (-127-127)
-INPUT2 float Meta_Oscillator_Filter_SignalCloseLevel = 0;       // Signal close level
-INPUT2 int Meta_Oscillator_Filter_PriceStopMethod = 0;          // Price limit method
-INPUT2 float Meta_Oscillator_Filter_PriceStopLevel = 2;         // Price limit level
-INPUT2 int Meta_Oscillator_Filter_TickFilterMethod = 32;        // Tick filter method (0-255)
-INPUT2 float Meta_Oscillator_Filter_MaxSpread = 4.0;            // Max spread to trade (in pips)
-INPUT2 short Meta_Oscillator_Filter_Shift = 0;                  // Shift
-INPUT2 float Meta_Oscillator_Filter_OrderCloseLoss = 200;       // Order close loss
-INPUT2 float Meta_Oscillator_Filter_OrderCloseProfit = 200;     // Order close profit
-INPUT2 int Meta_Oscillator_Filter_OrderCloseTime = 2880;        // Order close time in mins (>0) or bars (<0)
+INPUT2_GROUP("Meta Oscillator Switch strategy: main params");
+INPUT2 ENUM_STRATEGY Meta_Oscillator_Switch_Strategy = STRAT_MA_TREND;  // Strategy to filter by oscillator
+INPUT2 ENUM_STG_META_OSCILLATOR_SWITCH_TYPE Meta_Oscillator_Switch_Type =
+    STG_META_OSCILLATOR_SWITCH_TYPE_STDDEV;  // Oscillator type
+INPUT2_GROUP("Meta Oscillator Switch strategy: common params");
+INPUT2 float Meta_Oscillator_Switch_LotSize = 0;                // Lot size
+INPUT2 int Meta_Oscillator_Switch_SignalOpenMethod = 0;         // Signal open method
+INPUT2 float Meta_Oscillator_Switch_SignalOpenLevel = 0;        // Signal open level
+INPUT2 int Meta_Oscillator_Switch_SignalOpenSwitchMethod = 32;  // Signal open filter method
+INPUT2 int Meta_Oscillator_Switch_SignalOpenSwitchTime = 3;     // Signal open filter time (0-31)
+INPUT2 int Meta_Oscillator_Switch_SignalOpenBoostMethod = 0;    // Signal open boost method
+INPUT2 int Meta_Oscillator_Switch_SignalCloseMethod = 0;        // Signal close method
+INPUT2 int Meta_Oscillator_Switch_SignalCloseSwitch = 32;       // Signal close filter (-127-127)
+INPUT2 float Meta_Oscillator_Switch_SignalCloseLevel = 0;       // Signal close level
+INPUT2 int Meta_Oscillator_Switch_PriceStopMethod = 0;          // Price limit method
+INPUT2 float Meta_Oscillator_Switch_PriceStopLevel = 2;         // Price limit level
+INPUT2 int Meta_Oscillator_Switch_TickSwitchMethod = 32;        // Tick filter method (0-255)
+INPUT2 float Meta_Oscillator_Switch_MaxSpread = 4.0;            // Max spread to trade (in pips)
+INPUT2 short Meta_Oscillator_Switch_Shift = 0;                  // Shift
+INPUT2 float Meta_Oscillator_Switch_OrderCloseLoss = 200;       // Order close loss
+INPUT2 float Meta_Oscillator_Switch_OrderCloseProfit = 200;     // Order close profit
+INPUT2 int Meta_Oscillator_Switch_OrderCloseTime = 2880;        // Order close time in mins (>0) or bars (<0)
 INPUT3_GROUP("Meta Oscillator strategy: AC oscillator params");
 INPUT3 int Meta_Oscillator_Indi_AC_Shift = 0;                                      // Shift
 INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Indi_AC_SourceType = IDATA_BUILTIN;  // Source type
@@ -177,38 +177,38 @@ INPUT3 ENUM_IDATA_SOURCE_TYPE Meta_Oscillator_Indi_VOL_SourceType = IDATA_BUILTI
 
 // Structs.
 // Defines struct with default user strategy values.
-struct Stg_Meta_Oscillator_Filter_Params_Defaults : StgParams {
-  Stg_Meta_Oscillator_Filter_Params_Defaults()
-      : StgParams(::Meta_Oscillator_Filter_SignalOpenMethod, ::Meta_Oscillator_Filter_SignalOpenFilterMethod,
-                  ::Meta_Oscillator_Filter_SignalOpenLevel, ::Meta_Oscillator_Filter_SignalOpenBoostMethod,
-                  ::Meta_Oscillator_Filter_SignalCloseMethod, ::Meta_Oscillator_Filter_SignalCloseFilter,
-                  ::Meta_Oscillator_Filter_SignalCloseLevel, ::Meta_Oscillator_Filter_PriceStopMethod,
-                  ::Meta_Oscillator_Filter_PriceStopLevel, ::Meta_Oscillator_Filter_TickFilterMethod,
-                  ::Meta_Oscillator_Filter_MaxSpread, ::Meta_Oscillator_Filter_Shift) {
-    Set(STRAT_PARAM_LS, ::Meta_Oscillator_Filter_LotSize);
-    Set(STRAT_PARAM_OCL, ::Meta_Oscillator_Filter_OrderCloseLoss);
-    Set(STRAT_PARAM_OCP, ::Meta_Oscillator_Filter_OrderCloseProfit);
-    Set(STRAT_PARAM_OCT, ::Meta_Oscillator_Filter_OrderCloseTime);
-    Set(STRAT_PARAM_SOFT, ::Meta_Oscillator_Filter_SignalOpenFilterTime);
+struct Stg_Meta_Oscillator_Switch_Params_Defaults : StgParams {
+  Stg_Meta_Oscillator_Switch_Params_Defaults()
+      : StgParams(::Meta_Oscillator_Switch_SignalOpenMethod, ::Meta_Oscillator_Switch_SignalOpenSwitchMethod,
+                  ::Meta_Oscillator_Switch_SignalOpenLevel, ::Meta_Oscillator_Switch_SignalOpenBoostMethod,
+                  ::Meta_Oscillator_Switch_SignalCloseMethod, ::Meta_Oscillator_Switch_SignalCloseSwitch,
+                  ::Meta_Oscillator_Switch_SignalCloseLevel, ::Meta_Oscillator_Switch_PriceStopMethod,
+                  ::Meta_Oscillator_Switch_PriceStopLevel, ::Meta_Oscillator_Switch_TickSwitchMethod,
+                  ::Meta_Oscillator_Switch_MaxSpread, ::Meta_Oscillator_Switch_Shift) {
+    Set(STRAT_PARAM_LS, ::Meta_Oscillator_Switch_LotSize);
+    Set(STRAT_PARAM_OCL, ::Meta_Oscillator_Switch_OrderCloseLoss);
+    Set(STRAT_PARAM_OCP, ::Meta_Oscillator_Switch_OrderCloseProfit);
+    Set(STRAT_PARAM_OCT, ::Meta_Oscillator_Switch_OrderCloseTime);
+    Set(STRAT_PARAM_SOFT, ::Meta_Oscillator_Switch_SignalOpenSwitchTime);
   }
 };
 
-class Stg_Meta_Oscillator_Filter : public Strategy {
+class Stg_Meta_Oscillator_Switch : public Strategy {
  protected:
   Ref<Strategy> strat;
 
  public:
-  Stg_Meta_Oscillator_Filter(StgParams &_sparams, TradeParams &_tparams, ChartParams &_cparams, string _name = "")
+  Stg_Meta_Oscillator_Switch(StgParams &_sparams, TradeParams &_tparams, ChartParams &_cparams, string _name = "")
       : Strategy(_sparams, _tparams, _cparams, _name) {}
 
-  static Stg_Meta_Oscillator_Filter *Init(ENUM_TIMEFRAMES _tf = NULL, EA *_ea = NULL) {
+  static Stg_Meta_Oscillator_Switch *Init(ENUM_TIMEFRAMES _tf = NULL, EA *_ea = NULL) {
     // Initialize strategy initial values.
-    Stg_Meta_Oscillator_Filter_Params_Defaults stg_meta_oscillator_filter_defaults;
-    StgParams _stg_params(stg_meta_oscillator_filter_defaults);
+    Stg_Meta_Oscillator_Switch_Params_Defaults stg_meta_oscillator_switch_defaults;
+    StgParams _stg_params(stg_meta_oscillator_switch_defaults);
     // Initialize Strategy instance.
     ChartParams _cparams(_tf, _Symbol);
     TradeParams _tparams;
-    Strategy *_strat = new Stg_Meta_Oscillator_Filter(_stg_params, _tparams, _cparams, "(Meta) Oscillator Filter");
+    Strategy *_strat = new Stg_Meta_Oscillator_Switch(_stg_params, _tparams, _cparams, "(Meta) Oscillator Switch");
     return _strat;
   }
 
@@ -216,170 +216,170 @@ class Stg_Meta_Oscillator_Filter : public Strategy {
    * Event on strategy's init.
    */
   void OnInit() {
-    SetStrategy(Meta_Oscillator_Filter_Strategy);
+    SetStrategy(Meta_Oscillator_Switch_Strategy);
     // Initialize indicators.
-    switch (::Meta_Oscillator_Filter_Type) {
-      case STG_META_OSCILLATOR_FILTER_TYPE_AC:  // AC
+    switch (::Meta_Oscillator_Switch_Type) {
+      case STG_META_OSCILLATOR_SWITCH_TYPE_AC:  // AC
       {
         IndiACParams _indi_params(::Meta_Oscillator_Indi_AC_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_AC_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_AC(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_AC(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_AD:  // AD
+      case STG_META_OSCILLATOR_SWITCH_TYPE_AD:  // AD
       {
         IndiADParams _indi_params(::Meta_Oscillator_Indi_AD_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_AD_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_AD(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_AD(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_AO:  // AO
+      case STG_META_OSCILLATOR_SWITCH_TYPE_AO:  // AO
       {
         IndiAOParams _indi_params(::Meta_Oscillator_Indi_Awesome_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_Awesome_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_AO(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_AO(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_ATR:  // ATR
+      case STG_META_OSCILLATOR_SWITCH_TYPE_ATR:  // ATR
       {
         IndiATRParams _indi_params(::Meta_Oscillator_Indi_ATR_Period, ::Meta_Oscillator_Indi_ATR_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_ATR_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_ATR(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_ATR(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_BEARS:  // Bears
+      case STG_META_OSCILLATOR_SWITCH_TYPE_BEARS:  // Bears
       {
         IndiBearsPowerParams _indi_params(::Meta_Oscillator_Indi_BearsPower_Period,
                                           ::Meta_Oscillator_Indi_BearsPower_Applied_Price,
                                           ::Meta_Oscillator_Indi_BearsPower_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_BearsPower_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_BearsPower(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_BearsPower(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_BULLS:  // Bulls
+      case STG_META_OSCILLATOR_SWITCH_TYPE_BULLS:  // Bulls
       {
         IndiBullsPowerParams _indi_params(::Meta_Oscillator_Indi_BullsPower_Period,
                                           ::Meta_Oscillator_Indi_BullsPower_Applied_Price,
                                           ::Meta_Oscillator_Indi_BullsPower_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_BullsPower_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_BullsPower(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_BullsPower(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_BWMFI:  // BWMFI
+      case STG_META_OSCILLATOR_SWITCH_TYPE_BWMFI:  // BWMFI
       {
         IndiBWIndiMFIParams _indi_params(::Meta_Oscillator_Indi_BWMFI_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_BWMFI_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_BWMFI(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_BWMFI(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_CCI:  // CCI
+      case STG_META_OSCILLATOR_SWITCH_TYPE_CCI:  // CCI
       {
         IndiCCIParams _indi_params(::Meta_Oscillator_Indi_CCI_Period, ::Meta_Oscillator_Indi_CCI_Applied_Price,
                                    ::Meta_Oscillator_Indi_CCI_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_CCI_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_CCI(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_CCI(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_CHO:  // Chaikin (CHO)
+      case STG_META_OSCILLATOR_SWITCH_TYPE_CHO:  // Chaikin (CHO)
       {
         IndiCHOParams _indi_params(::Meta_Oscillator_Indi_CHO_InpFastMA, ::Meta_Oscillator_Indi_CHO_InpSlowMA,
                                    ::Meta_Oscillator_Indi_CHO_InpSmoothMethod, ::Meta_Oscillator_Indi_CHO_InpVolumeType,
                                    ::Meta_Oscillator_Indi_CHO_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_CHO_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_CHO(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_CHO(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_CHV:  // Chaikin Volatility (CHV)
+      case STG_META_OSCILLATOR_SWITCH_TYPE_CHV:  // Chaikin Volatility (CHV)
       {
         IndiCHVParams _indi_params(::Meta_Oscillator_Indi_CHV_Smooth_Period, ::Meta_Oscillator_Indi_CHV_Period,
                                    ::Meta_Oscillator_Indi_CHV_Smooth_Method, ::Meta_Oscillator_Indi_CHV_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_CHV_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_CHV(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_CHV(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_DEMARKER:  // DeMarker
+      case STG_META_OSCILLATOR_SWITCH_TYPE_DEMARKER:  // DeMarker
       {
         IndiDeMarkerParams _indi_params(::Meta_Oscillator_Indi_DeMarker_Period, ::Meta_Oscillator_Indi_DeMarker_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_DeMarker_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_DeMarker(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_DeMarker(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_MFI:  // MFI
+      case STG_META_OSCILLATOR_SWITCH_TYPE_MFI:  // MFI
       {
         IndiMFIParams _indi_params(::Meta_Oscillator_Indi_MFI_MA_Period, ::Meta_Oscillator_Indi_MFI_Applied_Volume,
                                    ::Meta_Oscillator_Indi_MFI_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_MFI_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_MFI(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_MFI(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_MOM:  // MOM
+      case STG_META_OSCILLATOR_SWITCH_TYPE_MOM:  // MOM
       {
         IndiMomentumParams _indi_params(::Meta_Oscillator_Indi_Momentum_Period,
                                         ::Meta_Oscillator_Indi_Momentum_Applied_Price,
                                         ::Meta_Oscillator_Indi_Momentum_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_Momentum_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_Momentum(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_Momentum(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_OBV:  // OBV
+      case STG_META_OSCILLATOR_SWITCH_TYPE_OBV:  // OBV
       {
         IndiOBVParams _indi_params(::Meta_Oscillator_Indi_OBV_Applied_Price, ::Meta_Oscillator_Indi_OBV_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_OBV_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_OBV(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_OBV(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_PVT:  // PVT
+      case STG_META_OSCILLATOR_SWITCH_TYPE_PVT:  // PVT
       {
         IndiPriceVolumeTrendParams _indi_params(::Meta_Oscillator_Indi_PVT_InpVolumeType,
                                                 ::Meta_Oscillator_Indi_PVT_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_PVT_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_PriceVolumeTrend(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_PriceVolumeTrend(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_ROC:  // ROC
+      case STG_META_OSCILLATOR_SWITCH_TYPE_ROC:  // ROC
       {
         IndiRateOfChangeParams _indi_params(::Meta_Oscillator_Indi_ROC_Period, ::Meta_Oscillator_Indi_ROC_Applied_Price,
                                             ::Meta_Oscillator_Indi_ROC_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_ROC_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_RateOfChange(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_RateOfChange(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_RSI:  // RSI
+      case STG_META_OSCILLATOR_SWITCH_TYPE_RSI:  // RSI
       {
         IndiRSIParams _indi_params(::Meta_Oscillator_Indi_RSI_Period, ::Meta_Oscillator_Indi_RSI_Applied_Price,
                                    ::Meta_Oscillator_Indi_RSI_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_RSI_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_RSI(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_RSI(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_STDDEV:  // StdDev
+      case STG_META_OSCILLATOR_SWITCH_TYPE_STDDEV:  // StdDev
       {
         IndiStdDevParams _indi_params(::Meta_Oscillator_Indi_StdDev_MA_Period, ::Meta_Oscillator_Indi_StdDev_MA_Shift,
                                       ::Meta_Oscillator_Indi_StdDev_MA_Method,
                                       ::Meta_Oscillator_Indi_StdDev_Applied_Price, ::Meta_Oscillator_Indi_StdDev_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_StdDev_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_StdDev(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_StdDev(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_STOCH:  // Stochastic
+      case STG_META_OSCILLATOR_SWITCH_TYPE_STOCH:  // Stochastic
       {
         IndiStochParams _indi_params(
             ::Meta_Oscillator_Indi_Stochastic_KPeriod, ::Meta_Oscillator_Indi_Stochastic_DPeriod,
@@ -387,19 +387,19 @@ class Stg_Meta_Oscillator_Filter : public Strategy {
             ::Meta_Oscillator_Indi_Stochastic_Price_Field, ::Meta_Oscillator_Indi_Stochastic_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_Stochastic_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_Stochastic(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_Stochastic(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_TRIX:  // TRIX
+      case STG_META_OSCILLATOR_SWITCH_TYPE_TRIX:  // TRIX
       {
         IndiTRIXParams _indi_params(::Meta_Oscillator_Indi_TRIX_InpPeriodEMA, ::Meta_Oscillator_Indi_TRIX_Applied_Price,
                                     ::Meta_Oscillator_Indi_TRIX_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_TRIX_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_TRIX(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_TRIX(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_UO:  // UO
+      case STG_META_OSCILLATOR_SWITCH_TYPE_UO:  // UO
       {
         IndiUltimateOscillatorParams _indi_params(
             ::Meta_Oscillator_Indi_UO_InpFastPeriod, ::Meta_Oscillator_Indi_UO_InpMiddlePeriod,
@@ -407,34 +407,34 @@ class Stg_Meta_Oscillator_Filter : public Strategy {
             ::Meta_Oscillator_Indi_UO_InpMiddleK, ::Meta_Oscillator_Indi_UO_InpSlowK, ::Meta_Oscillator_Indi_UO_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_UO_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_UltimateOscillator(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_UltimateOscillator(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_WAD:  // Williams' AD
+      case STG_META_OSCILLATOR_SWITCH_TYPE_WAD:  // Williams' AD
       {
         IndiWilliamsADParams _indi_params(::Meta_Oscillator_Indi_WAD_Shift);
         _indi_params.SetDataSourceType(Meta_Oscillator_Indi_WAD_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_WilliamsAD(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_WilliamsAD(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_WPR:  // WPR
+      case STG_META_OSCILLATOR_SWITCH_TYPE_WPR:  // WPR
       {
         IndiWPRParams _indi_params(::Meta_Oscillator_Indi_WPR_Period, ::Meta_Oscillator_Indi_WPR_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_WPR_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_WPR(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_WPR(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_VOL:  // Volumes
+      case STG_META_OSCILLATOR_SWITCH_TYPE_VOL:  // Volumes
       {
         IndiVolumesParams _indi_params(::Meta_Oscillator_Indi_VOL_InpVolumeType, ::Meta_Oscillator_Indi_VOL_Shift);
         _indi_params.SetDataSourceType(::Meta_Oscillator_Indi_VOL_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_Volumes(_indi_params), ::Meta_Oscillator_Filter_Type);
+        SetIndicator(new Indi_Volumes(_indi_params), ::Meta_Oscillator_Switch_Type);
         break;
       }
-      case STG_META_OSCILLATOR_FILTER_TYPE_0_NONE:  // (None)
+      case STG_META_OSCILLATOR_SWITCH_TYPE_0_NONE:  // (None)
       default:
         break;
     }
@@ -649,12 +649,12 @@ class Stg_Meta_Oscillator_Filter : public Strategy {
    */
   bool SignalOpen(ENUM_ORDER_TYPE _cmd, int _method, float _level = 0.0f, int _shift = 0) {
     bool _result =
-        ::Meta_Oscillator_Filter_Type != STG_META_OSCILLATOR_FILTER_TYPE_0_NONE;  // && IsValidEntry(_indi, _shift);
+        ::Meta_Oscillator_Switch_Type != STG_META_OSCILLATOR_SWITCH_TYPE_0_NONE;  // && IsValidEntry(_indi, _shift);
     if (!strat.IsSet()) {
       // Returns false when strategy is not set.
       return false;
     }
-    IndicatorBase *_indi = GetIndicator(::Meta_Oscillator_Filter_Type);
+    IndicatorBase *_indi = GetIndicator(::Meta_Oscillator_Switch_Type);
     // uint _ishift = _indi.GetShift();
     uint _ishift = _shift;
     switch (_cmd) {
@@ -677,12 +677,12 @@ class Stg_Meta_Oscillator_Filter : public Strategy {
    */
   bool SignalClose(ENUM_ORDER_TYPE _cmd, int _method, float _level = 0.0f, int _shift = 0) {
     bool _result =
-        ::Meta_Oscillator_Filter_Type != STG_META_OSCILLATOR_FILTER_TYPE_0_NONE;  // && IsValidEntry(_indi, _shift);
+        ::Meta_Oscillator_Switch_Type != STG_META_OSCILLATOR_SWITCH_TYPE_0_NONE;  // && IsValidEntry(_indi, _shift);
     if (!strat.IsSet()) {
       // Returns false when strategy is not set.
       return false;
     }
-    IndicatorBase *_indi = GetIndicator(::Meta_Oscillator_Filter_Type);
+    IndicatorBase *_indi = GetIndicator(::Meta_Oscillator_Switch_Type);
     switch (_cmd) {
       case ORDER_TYPE_BUY:
         _result &= _indi.IsDecreasing(1, 0, _shift);
@@ -699,4 +699,4 @@ class Stg_Meta_Oscillator_Filter : public Strategy {
   }
 };
 
-#endif  // STG_META_OSCILLATOR_FILTER_MQH
+#endif  // STG_META_OSCILLATOR_SWITCH_MQH
