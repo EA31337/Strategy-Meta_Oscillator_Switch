@@ -38,10 +38,10 @@ enum ENUM_STG_META_OSCILLATOR_SWITCH_TYPE {
 // User input params.
 INPUT2_GROUP("Meta Oscillator Switch strategy: main params");
 INPUT2 ENUM_STG_META_OSCILLATOR_SWITCH_TYPE Meta_Oscillator_Switch_Type =
-    STG_META_OSCILLATOR_SWITCH_TYPE_STDDEV;                                  // Oscillator type
-INPUT2 ENUM_STRATEGY Meta_Oscillator_Switch_Strategy_Dn = STRAT_OSCILLATOR;  // Strategy when oscillator goes down
-INPUT2 ENUM_STRATEGY Meta_Oscillator_Switch_Strategy_Up = STRAT_CHAIKIN;     // Strategy when oscillator goes up
-INPUT2 ENUM_TIMEFRAMES Meta_Oscillator_Switch_Tf = PERIOD_D1;                // Timeframe for oscillator
+    STG_META_OSCILLATOR_SWITCH_TYPE_ATR;                                  // Oscillator type
+INPUT2 ENUM_STRATEGY Meta_Oscillator_Switch_Strategy_Dn = STRAT_BANDS;    // Strategy when oscillator goes down
+INPUT2 ENUM_STRATEGY Meta_Oscillator_Switch_Strategy_Up = STRAT_AWESOME;  // Strategy when oscillator goes up
+INPUT2 ENUM_TIMEFRAMES Meta_Oscillator_Switch_Tf = PERIOD_H8;             // Timeframe for oscillator
 INPUT3_GROUP("Meta Oscillator Switch strategy: common params");
 INPUT3 float Meta_Oscillator_Switch_LotSize = 0;                // Lot size
 INPUT3 int Meta_Oscillator_Switch_SignalOpenMethod = 0;         // Signal open method
